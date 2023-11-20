@@ -32,6 +32,13 @@ function collectUserData() {
 
 function sendData(event) {
   event.preventDefault();
+  if (
+    form.elements.email.value.trim() === '' ||
+    form.elements.message.value.trim() === ''
+  ) {
+    alert('Усі поля повинні бути заповнені!');
+    return;
+  }
   const User = collectUserData();
   console.log(User);
   localStorage.removeItem('feedback-form-state');
